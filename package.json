@@ -1,0 +1,78 @@
+{
+  "name": "@react-hookbox/enhanced-callback",
+  "version": "1.0.0",
+  "description": "The enhanced version of useCallback that doesn't need deps array and keeps reference the same.",
+  "author": "hakobpogh",
+  "license": "MIT",
+  "repository": "react-hookbox/enhanced-callback",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "build": "microbundle-crl --no-compress --format modern,esm,cjs",
+    "start": "microbundle-crl watch --no-compress --format modern,esm,cjs",
+    "lint": "eslint .",
+    "test": "run-s test:build test:unit",
+    "test:build": "run-s build",
+    "test:unit": "cross-env CI=true react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --env=jsdom",
+    "predeploy": "yarn example && yarn example build",
+    "deploy": "gh-pages -d example/build",
+    "example": "yarn --cwd example"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0 || ^17.0.0"
+  },
+  "keywords": [
+    "@react-hookbox",
+    "@react-hookbox/enhanced-callback",
+    "enhanced-callback-hook",
+    "enhanced",
+    "useCallback",
+    "useCallback without deps",
+    "no deps callback hook",
+    "static callback",
+    "not changing callback",
+    "readonly callback",
+    "react",
+    "hook"
+  ],
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/react-hooks": "^7.0.1",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^12.12.38",
+    "@types/react": "^16.9.27",
+    "@types/react-dom": "^16.9.7",
+    "@types/testing-library__react-hooks": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.0",
+    "@typescript-eslint/parser": "^4.11.0",
+    "babel-eslint": "^10.0.3",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.16.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-testing-library": "^3.10.1",
+    "gh-pages": "^2.2.0",
+    "microbundle-crl": "^0.13.10",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1",
+    "typescript": "^4.1.3"
+  },
+  "files": [
+    "dist",
+    "src"
+  ]
+}
