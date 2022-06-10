@@ -5,10 +5,12 @@ const AppExample = () => {
   const [num, setNum] = useState(1);
 
   const adder = useEnhancedCallback((prev: number) => prev + 1);
+  const logIt = useEnhancedCallback(() => console.log('it'));
 
   const logNum = useEnhancedCallback((text: string, increase = true) => {
     // eslint-disable-next-line no-console
     console.log(text, num);
+    logIt();
     if (increase) {
       setNum(adder);
     }

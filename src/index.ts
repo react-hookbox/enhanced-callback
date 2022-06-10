@@ -1,9 +1,11 @@
 import { useCallback, useRef } from 'react';
 
 type Fn = (...args: any[]) => any;
+type EmptyFn = () => any;
 
 interface EnhancedCallbackHook {
   <F extends Fn>(fn: F): (...args: Parameters<F>) => ReturnType<F>;
+  <F extends EmptyFn>(fn: F): () => ReturnType<F>;
 }
 
 export const useEnhancedCallback: EnhancedCallbackHook = <F extends Fn>(fn: F) => {
